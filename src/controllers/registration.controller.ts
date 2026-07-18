@@ -94,14 +94,14 @@ export const getParticipants = async (
       return;
     }
 
+    // combining where & orderBy on different fields requires composite index
     const regSnap = await db
       .collection(Collections.REGISTRATIONS)
       .where("eventId", "==", eventId)
-      .orderBy("registeredAt", "asc")
       .get();
 
     // Fetch student details for each registration
-    const participants = await Promise.all(
+    const participants = (await Promise.all(
       regSnap.docs.map(async (regDoc) => {
         const regData = regDoc.data();
         const studentDoc = await db
@@ -121,7 +121,11 @@ export const getParticipants = async (
           },
         };
       }),
-    );
+    )).sort((a, b) => {
+      // Sort ascending by registeredAt (Firestore Timestamp or Date)
+      const toMs = (t: any) => t?.toMillis?.() ?? new Date(t).getTime();
+      return toMs(a.registeredAt) - toMs(b.registeredAt);
+    });
 
     res.status(200).json({
       success: true,
