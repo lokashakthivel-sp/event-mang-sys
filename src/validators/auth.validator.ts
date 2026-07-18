@@ -22,8 +22,6 @@ export const registerSchema = z.object({
     .string({ required_error: "Roll number is required" })
     .min(1, "Roll number is required")
     .trim(),
-
-  //role: z.string().default("student"),
 });
 
 export const loginSchema = z.object({
@@ -36,5 +34,6 @@ export const loginSchema = z.object({
   password: z.string({ required_error: "Password is required" }),
 });
 
+// creates TS types automatically
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;

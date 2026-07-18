@@ -95,6 +95,7 @@ export const updateEvent = async (
   res: Response,
 ): Promise<void> => {
   try {
+    // get a ref to the doc
     const eventRef = db.collection(Collections.EVENTS).doc(req.params.id);
     const doc = await eventRef.get();
 
@@ -103,7 +104,7 @@ export const updateEvent = async (
       return;
     }
 
-    // Only the creator can update
+    // Only the creator(created admin) can update
     if (doc.data()?.createdBy !== req.student!.id) {
       res.status(403).json({
         success: false,
@@ -140,7 +141,7 @@ export const deleteEvent = async (
       return;
     }
 
-    // Only the creator can delete
+    // Only the creator(created admin) can delete
     if (doc.data()?.createdBy !== req.student!.id) {
       res.status(403).json({
         success: false,
@@ -155,6 +156,8 @@ export const deleteEvent = async (
       .where("eventId", "==", req.params.id)
       .get();
 
+    // ensures atomicity - all or nothing
+    // all reg of a event is deleted before event
     const batch = db.batch();
     regSnap.docs.forEach((d) => batch.delete(d.ref));
     batch.delete(eventRef);

@@ -1,6 +1,5 @@
 /**
- * Seeds admin accounts directly into Firestore.
- * This is the ONLY way to create admin accounts — the API does not allow it.
+ * This is the ONLY way to create admin accounts.
  * Usage:
  *   npx tsx seed-admin.ts
  * Already-existing emails are skipped safely (no duplicates created).
@@ -72,19 +71,6 @@ async function seedAdmins() {
       created++;
     } catch (err: any) {
       console.error(`Failed   — ${adminData.email}:`, err.message ?? err);
-      console.log("\nCheck your .env values:");
-      console.log(
-        "  FIREBASE_PROJECT_ID =",
-        process.env.FIREBASE_PROJECT_ID ?? "MISSING",
-      );
-      console.log(
-        "  FIREBASE_CLIENT_EMAIL =",
-        process.env.FIREBASE_CLIENT_EMAIL ?? "MISSING",
-      );
-      console.log(
-        "  FIREBASE_PRIVATE_KEY =",
-        process.env.FIREBASE_PRIVATE_KEY ? "(set)" : "MISSING",
-      );
     }
   }
 

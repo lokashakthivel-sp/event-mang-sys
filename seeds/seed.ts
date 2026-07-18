@@ -57,8 +57,7 @@ async function seed() {
     console.log("registrations collection ready");
 
     console.log("\nAll collections initialized in Firestore!");
-    console.log("Open Firebase Console → Firestore Database to verify.");
-    console.log("https://console.firebase.google.com\n");
+    console.log("To verify: https://console.firebase.google.com\n");
 
     // cleanup seed docs
     console.log("Cleaning up seed documents...");
@@ -66,6 +65,7 @@ async function seed() {
     await db.collection("events").doc("_init").delete();
     await db.collection("registrations").doc("_init").delete();
     console.log("Seed documents removed. Collections remain.\n");
+    
   } catch (err: any) {
     console.error("Firestore connection failed:\n", err.message ?? err);
     console.log("\nCheck your .env values:");

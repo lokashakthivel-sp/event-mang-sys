@@ -207,3 +207,9 @@ All errors follow a consistent shape:
 ```
 
 `errors` is only present on validation failures (HTTP 400).
+
+---
+
+## Future Ideas
+
+1. Regex matching for college mail to allow regisrations only from college

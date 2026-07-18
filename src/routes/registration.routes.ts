@@ -7,10 +7,10 @@ import { protect, requireRole } from "../middleware/auth.middleware";
 
 const router = Router();
 
-// Students register for events
+// only for students - admin cant register to events
 router.post("/:id/register", protect, requireRole("student"), registerForEvent);
 
-// Admins view participants
+// only admin can view participants
 router.get("/:id/participants", protect, requireRole("admin"), getParticipants);
 
 export default router;

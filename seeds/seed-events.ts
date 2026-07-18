@@ -1,5 +1,4 @@
 /**
- * Seeds sample events directly into Firestore.
  * Usage:
  *   npx tsx seed-events.ts
  * Requires an admin to already exist in the DB (run seed-admin.ts first).
@@ -86,7 +85,6 @@ const EVENTS = [
     maxParticipants: 500,
   },
 ];
-// ─────────────────────────────────────────────────────────────────────────────
 
 async function seedEvents() {
   console.log("Connecting to Firestore...\n");

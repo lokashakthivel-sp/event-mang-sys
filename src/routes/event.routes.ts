@@ -15,11 +15,11 @@ import {
 
 const router = Router();
 
-// Public
+// public
 router.get("/", getAllEvents);
 router.get("/:id", getEventById);
 
-// Admin only
+// admin only
 router.post(
   "/",
   protect,

@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
+// check to prevent rerunning the initailization code
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
@@ -15,7 +16,7 @@ if (!admin.apps.length) {
 
 export const db = admin.firestore();
 
-// ? Collection references — single source of truth for collection names
+// collections
 export const Collections = {
   STUDENTS: "students",
   EVENTS: "events",

@@ -6,7 +6,7 @@ import { RegisterInput, LoginInput } from "../validators/auth.validator";
 import { Student } from "../types";
 
 // POST /api/auth/register
-// * only student are registered
+// * only students are registered
 export const registerStudent = async (
   req: Request,
   res: Response,
@@ -100,6 +100,7 @@ export const loginStudent = async (
       return;
     }
 
+    // jwt token generation
     const token = jwt.sign(
       { id: studentDoc.id, email: student.email, role: student.role }, // role will be student/admin
       process.env.JWT_SECRET as string,

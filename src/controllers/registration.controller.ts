@@ -95,6 +95,7 @@ export const getParticipants = async (
     }
 
     // combining where & orderBy on different fields requires composite index
+    // so only filter with where 
     const regSnap = await db
       .collection(Collections.REGISTRATIONS)
       .where("eventId", "==", eventId)
@@ -122,7 +123,7 @@ export const getParticipants = async (
         };
       }),
     )).sort((a, b) => {
-      // Sort ascending by registeredAt (Firestore Timestamp or Date)
+      // Sort ascending by registeredAt
       const toMs = (t: any) => t?.toMillis?.() ?? new Date(t).getTime();
       return toMs(a.registeredAt) - toMs(b.registeredAt);
     });
