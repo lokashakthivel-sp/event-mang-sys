@@ -212,4 +212,4 @@ All errors follow a consistent shape:
 
 ## Future Ideas
 
-1. Regex matching for college mail to allow regisrations only from college
+1. Regex matching to allow regisrations only with college mail id
