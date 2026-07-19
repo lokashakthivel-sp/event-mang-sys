@@ -31,7 +31,7 @@ Backend REST API for managing CSEA events and student registrations, built with 
 
 ### Screenshots
 
-[Look at the code snippets](https://drive.google.com/file/d/1T2jV1OEPQWXaVIEAUkrmIvYA27tfQ6NZ/view?usp=sharing)
+[Look at the code snippets](https://drive.google.com/drive/folders/19etmh4kXlzbxcMcGhEO8OInjidJz3ANS?usp=sharing)
 
 ---
 
