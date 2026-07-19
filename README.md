@@ -19,6 +19,22 @@ Backend REST API for managing CSEA events and student registrations, built with 
 
 ---
 
+## Demo video & screenshots
+
+### Code demo
+
+[Watch the code demo](https://drive.google.com/file/d/1T2jV1OEPQWXaVIEAUkrmIvYA27tfQ6NZ/view?usp=sharing)
+
+### API demo(Postman)
+
+[Watch the API demo](https://drive.google.com/file/d/1zZvjgBi8s_PsfGJLcwb_y8HENRb2Cwpb/view?usp=sharing)
+
+### Screenshots
+
+[Look at the code snippets](https://drive.google.com/file/d/1T2jV1OEPQWXaVIEAUkrmIvYA27tfQ6NZ/view?usp=sharing)
+
+---
+
 ## Database
 
 Firebase Firestore (NoSQL) is used as the database, hosted on Google Cloud.
