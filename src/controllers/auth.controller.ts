@@ -104,7 +104,7 @@ export const loginStudent = async (
     const token = jwt.sign(
       { id: studentDoc.id, email: student.email, role: student.role }, // role will be student/admin
       process.env.JWT_SECRET as string,
-      { expiresIn: process.env.JWT_EXPIRES_IN ?? "7d" },
+      { expiresIn: (process.env.JWT_EXPIRES_IN ?? '7d') as jwt.SignOptions['expiresIn'] }
     );
 
     res.status(200).json({
